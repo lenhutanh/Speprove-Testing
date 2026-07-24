@@ -41,5 +41,5 @@
 | 4 | Enter default test OTP `123456` and click verify | OTP is verified, user account status in database changes to active, and user is redirected to `/login` page with a success toast. | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/register-decision-table.md) (Rule R1)
 *   Equivalence Partitioning (EP)
-*   State Transition (ST)
