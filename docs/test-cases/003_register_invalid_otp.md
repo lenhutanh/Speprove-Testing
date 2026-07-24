@@ -1,14 +1,14 @@
-# Test Case: TC-AUTH-004 - Register failed with invalid OTP
+# Test Case: TC-AUTH-003 - Register failed with invalid OTP
 
 ## 1. General Information
 | Field | Details / Description |
 | :--- | :--- |
-| **Test Case ID** | TC-AUTH-004 |
+| **Test Case ID** | TC-AUTH-003 |
 | **Feature** | Register |
 | **Description** | Verify that registration verification fails and displays an error toast when entering an invalid or incorrect OTP. |
 | **Created By** | Le Nhut Anh |
 | **Version** | 1.0 |
-| **Automation Script** | [register.spec.ts](../../automation/e2e/register.spec.ts#L41) |
+| **Automation Script** | [register.spec.ts](../../automation/e2e/register.spec.ts#L32) |
 
 ## 2. Test Execution Log
 | Tester | Date Tested | Status | Remarks |
@@ -39,5 +39,5 @@
 | 3 | Enter an invalid OTP `000000` and submit | OTP verification fails, user stays on `/verify-otp`, and an error toast "OTP is invalid or has expired" is displayed. | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/register-decision-table.md) (Rule R3)
 *   Equivalence Partitioning (EP)
-*   Error Guessing (EG)

@@ -8,7 +8,7 @@
 | **Description** | Verify that registration fails with an error toast when trying to register with an email that already exists in the system. |
 | **Created By** | Le Nhut Anh |
 | **Version** | 1.0 |
-| **Automation Script** | [register.spec.ts](../../automation/e2e/register.spec.ts#L20) |
+| **Automation Script** | [register.spec.ts](../../automation/e2e/register.spec.ts#L23) |
 
 ## 2. Test Execution Log
 | Tester | Date Tested | Status | Remarks |
@@ -39,5 +39,5 @@
 | 3 | Click the "Sign up" button | Form is submitted, registration fails, and an error toast "Account already exists" is displayed. | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/register-decision-table.md) (Rule R2)
 *   Equivalence Partitioning (EP)
-*   Error Guessing (EG)

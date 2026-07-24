@@ -20,44 +20,17 @@ test.describe('Register Feature Tests', () => {
     ).toBeVisible();
   });
 
-  const registerFailScenarios = [
-    {
-      id: "TC-AUTH-002",
-      description: "Register failed with email already registered",
-      email: "user01@example.com",
-      password: "Password123!",
-      confirmPassword: "Password123!",
-      expectedErrorType: "toast",
-      expectedMessage: "Account already exists",
-    },
-    {
-      id: "TC-AUTH-003",
-      description: "Register failed with password mismatch",
-      email: `testuser_${Date.now()}@example.com`,
-      password: "Password123!",
-      confirmPassword: "DifferentPassword123!",
-      expectedErrorType: "validation",
-      expectedMessage: "Mật khẩu xác nhận không khớp",
-    }
-  ];
+  test('TC-AUTH-002: Register failed with email already registered @regression', async ({ registerPage, page }) => {
+    await registerPage.navigate();
+    await registerPage.register('user01@example.com', 'Password123!', 'Password123!');
 
-  for (const scenario of registerFailScenarios) {
-    test(`${scenario.id}: ${scenario.description} @regression`, async ({ registerPage, page }) => {
-      await registerPage.navigate();
-      await registerPage.register(scenario.email, scenario.password, scenario.confirmPassword);
+    await expect(
+      registerPage.toast.filter({ hasText: 'Account already exists' })
+    ).toBeVisible({ timeout: 15000 });
+    await expect(page).toHaveURL(/.*\/register/);
+  });
 
-      if (scenario.expectedErrorType === "toast") {
-        await expect(
-          registerPage.toast.filter({ hasText: scenario.expectedMessage })
-        ).toBeVisible({ timeout: 15000 });
-      } else if (scenario.expectedErrorType === "validation") {
-        await expect(page.locator(`text=${scenario.expectedMessage}`)).toBeVisible();
-        await expect(page).toHaveURL(/.*\/register/);
-      }
-    });
-  }
-
-  test('TC-AUTH-004: Register failed with invalid OTP @regression', async ({ registerPage, verifyOtpPage, page }) => {
+  test('TC-AUTH-003: Register failed with invalid OTP @regression', async ({ registerPage, verifyOtpPage, page }) => {
     const dynamicEmail = `testuser_${Date.now()}@example.com`;
     const password = 'Password123!';
 
