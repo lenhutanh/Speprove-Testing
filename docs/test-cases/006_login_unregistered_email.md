@@ -1,14 +1,14 @@
-# Test Case: TC-AUTH-008 - Login failed with unregistered email
+# Test Case: TC-AUTH-006 - Login failed with unregistered email
 
 ## 1. General Information
 | Field | Details / Description |
 | :--- | :--- |
-| **Test Case ID** | TC-AUTH-008 |
+| **Test Case ID** | TC-AUTH-006 |
 | **Feature** | Login |
 | **Description** | Verify that login fails and displays an error toast when using an unregistered email. |
 | **Created By** | Le Nhut Anh |
 | **Version** | 1.0 |
-| **Automation Script** | [login.spec.ts](../../automation/e2e/login.spec.ts#L30) |
+| **Automation Script** | [login.spec.ts](../../automation/e2e/login.spec.ts#L22) |
 
 ## 2. Test Execution Log
 | Tester | Date Tested | Status | Remarks |
@@ -38,5 +38,5 @@
 | 3 | Click the "Login" button | Login fails, user remains on `/login`, and an error toast "Invalid email or password" is displayed. | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/login-decision-table.md) (Rule R2)
 *   Equivalence Partitioning (EP)
-*   Error Guessing (EG)

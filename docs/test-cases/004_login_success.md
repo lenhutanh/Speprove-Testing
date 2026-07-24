@@ -1,9 +1,9 @@
-# Test Case: TC-AUTH-005 - Login successfully with valid credentials
+# Test Case: TC-AUTH-004 - Login successfully with valid credentials
 
 ## 1. General Information
 | Field | Details / Description |
 | :--- | :--- |
-| **Test Case ID** | TC-AUTH-005 |
+| **Test Case ID** | TC-AUTH-004 |
 | **Feature** | Login |
 | **Description** | Verify that a registered user can log in successfully with correct credentials. |
 | **Created By** | Le Nhut Anh |
@@ -38,5 +38,5 @@
 | 3 | Click the "Login" button | User is authenticated and redirected to the home page (`/`, `/vi` or `/en`). | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/login-decision-table.md) (Rule R1)
 *   Equivalence Partitioning (EP)
-*   State Transition (ST)

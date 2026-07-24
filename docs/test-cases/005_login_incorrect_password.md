@@ -1,9 +1,9 @@
-# Test Case: TC-AUTH-006 - Login failed with incorrect password
+# Test Case: TC-AUTH-005 - Login failed with incorrect password
 
 ## 1. General Information
 | Field | Details / Description |
 | :--- | :--- |
-| **Test Case ID** | TC-AUTH-006 |
+| **Test Case ID** | TC-AUTH-005 |
 | **Feature** | Login |
 | **Description** | Verify that login fails and displays an error toast when using an incorrect password. |
 | **Created By** | Le Nhut Anh |
@@ -38,5 +38,5 @@
 | 3 | Click the "Login" button | Login fails, user remains on `/login`, and an error toast "Invalid email or password" is displayed. | As expected | **PASS** |
 
 ## 5. Testing Techniques Applied
+*   [Decision Table Testing](../decision-tables/login-decision-table.md) (Rule R3)
 *   Equivalence Partitioning (EP)
-*   Error Guessing (EG)
