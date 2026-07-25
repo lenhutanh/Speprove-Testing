@@ -17,13 +17,6 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    launchOptions: {
-      args: [
-        '--use-fake-ui-for-media-stream',
-        '--use-fake-device-for-media-stream',
-        `--use-file-for-fake-audio-capture=${path.join(__dirname, 'assets', 'sample.wav')}`,
-      ],
-    },
   },
   projects: [
     {
@@ -38,13 +31,20 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         storageState: STORAGE_STATE,
+        launchOptions: {
+          args: [
+            '--use-fake-ui-for-media-stream',
+            '--use-fake-device-for-media-stream',
+            `--use-file-for-fake-audio-capture=${path.join(__dirname, 'assets', 'sample.wav')}`,
+          ],
+        },
       },
       dependencies: ['setup'],
     },
     {
       name: 'firefox',
       testDir: './e2e',
-      testIgnore: /auth\.setup\.ts/,
+      testIgnore: [/auth\.setup\.ts/, /practice\.spec\.ts/],
       use: {
         ...devices['Desktop Firefox'],
         storageState: STORAGE_STATE,
@@ -54,7 +54,7 @@ export default defineConfig({
     {
       name: 'webkit',
       testDir: './e2e',
-      testIgnore: /auth\.setup\.ts/,
+      testIgnore: [/auth\.setup\.ts/, /practice\.spec\.ts/],
       use: {
         ...devices['Desktop Safari'],
         storageState: STORAGE_STATE,
