@@ -1,5 +1,7 @@
 import { test, expect } from '../fixtures/fixtures';
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test.describe('Register Feature Tests', () => {
   test('TC-AUTH-001: Register successfully with dynamic credentials and verify OTP @smoke', async ({ registerPage, verifyOtpPage, page }) => {
     const dynamicEmail = `testuser_${Date.now()}@example.com`;
