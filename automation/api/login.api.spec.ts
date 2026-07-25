@@ -3,10 +3,17 @@ import { StatusCodes, ErrorCodes } from '../constants';
 
 test.describe('Login API Tests', () => {
   test('POST /api/v1/auth/login - Success', async ({ request }) => {
+    const email = process.env.TEST_USER_EMAIL;
+    const password = process.env.TEST_USER_PASSWORD;
+
+    if (!email || !password) {
+      throw new Error("Missing TEST_USER_EMAIL or TEST_USER_PASSWORD in environment variables.");
+    }
+
     const response = await request.post('/api/v1/auth/login', {
       data: {
-        email: 'user01@example.com',
-        password: 'user123654',
+        email: email,
+        password: password,
       },
     });
 
@@ -16,9 +23,15 @@ test.describe('Login API Tests', () => {
   });
 
   test('POST /api/v1/auth/login - Fail (Wrong password)', async ({ request }) => {
+    const email = process.env.TEST_USER_EMAIL;
+
+    if (!email) {
+      throw new Error("Missing TEST_USER_EMAIL in environment variables.");
+    }
+
     const response = await request.post('/api/v1/auth/login', {
       data: {
-        email: 'user01@example.com',
+        email: email,
         password: 'WrongPassword123!',
       },
     });
