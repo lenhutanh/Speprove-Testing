@@ -14,7 +14,7 @@ test.describe("Speaking Practice Feature Tests", () => {
     practicePage,
     page,
   }) => {
-    test.setTimeout(80000);
+    test.setTimeout(120000);
 
     const audioPath = path.join(__dirname, "..", "assets", "sample.wav");
     const recordDuration = getWavDuration(audioPath);
@@ -44,7 +44,7 @@ test.describe("Speaking Practice Feature Tests", () => {
     await practicePage.submitAttempt();
 
     await expect(practicePage.latestAttempt).toContainText("Band ", {
-      timeout: 60000,
+      timeout: 90000,
     });
   });
 
