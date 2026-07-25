@@ -66,7 +66,9 @@ export default defineConfig({
       testDir: './api',
       use: {
         browserName: 'chromium',
+        storageState: STORAGE_STATE,
       },
+      dependencies: ['setup'],
     },
   ],
 });
