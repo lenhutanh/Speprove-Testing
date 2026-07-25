@@ -1,5 +1,7 @@
 import { test, expect } from "../fixtures/fixtures";
 
+test.use({ storageState: { cookies: [], origins: [] } });
+
 test.describe("Login Feature Tests", () => {
   test("TC-AUTH-004: Login successfully with valid credentials @smoke", async ({
     loginPage,
